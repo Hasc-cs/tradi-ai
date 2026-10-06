@@ -1,8 +1,9 @@
 import os
 from dotenv import load_dotenv
-
+#from langchain.chat_models import chatollama
+#from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langchain.chat_models import init_chat_model
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+
 
 load_dotenv()
 
@@ -13,7 +14,7 @@ if not model_name:
 llm = init_chat_model(model=model_name, temperature=0.1)
 
 messages = [
-    SystemMessage(content="You are a helpful Corvit AI Assistant!")
+    ({"role": "system", "content": "You are a helpful assistant."})
 ]
 
 while True:
@@ -25,8 +26,11 @@ while True:
         print("Goodbye!")
         break
 
-    messages.append(HumanMessage(content=question))
+    messages.append({
+           "role": "user",
+          "content": question
+    })
     response = llm.invoke(messages)
-    messages.append(AIMessage(content=response.content))
+    messages.append(({"role": "assistant", "content": response.content}))
 
     print("AI:", response.content)
