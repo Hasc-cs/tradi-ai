@@ -1,0 +1,9 @@
+# python_generated files
+.venv/
+__pycache__/
+dist/
+wheels/
+*.egg-info/
+# virtual_envoriment 
+.venv
+.env

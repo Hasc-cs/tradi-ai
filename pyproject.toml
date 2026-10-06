@@ -1,0 +1,30 @@
+[project]
+name = "tradi-ai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "hasc-cs", email = "ha4636417@gamil.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "google-genai>=2.26.0",
+    "ipykernel>=7.3.0",
+    "langchain>=1.4.3",
+    "langchain-ollama>=1.1.0",
+    "load-dotenv>=0.1.0",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.3",
+    "ollama>=0.6.3",
+    "pandas>=3.0.6",
+    "python-dotenv>=1.2.4",
+    "python-env>=1.0.0",
+    "scikit-learn>=1.9.1",
+]
+
+[project.scripts]
+tradi-ai = "tradi_ai:main"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
